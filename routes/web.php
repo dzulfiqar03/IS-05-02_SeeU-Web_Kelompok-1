@@ -1,10 +1,12 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogOutController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\UMKMController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
@@ -35,9 +37,10 @@ Route::get('/guestPage', function () {
 })->name('guest');
 
 Route::middleware('isLogin')->group(function () {
-    Route::get('/adminDashboard', function () {
-        return view('Menu.admin');
-    })->name('admin');
+
+
+    Route::get('/admin', [AdminController::class, 'index'])->name('admin');
+
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 });
 
@@ -51,3 +54,14 @@ Route::get('/resetPassword/{token}', [ForgotPasswordController::class, 'resetPas
 
 Route::post('/resetPassword', [ForgotPasswordController::class, 'resetPasswordPost'])->name('reset.password.post');
 
+Route::resource('umkm', UMKMController::class);
+Route::resource('admin', AdminController::class);
+
+
+Route::get('/dataUMKM', function () {
+    return view('umkm.data_umkm');
+})->name('dataUmkm');
+
+Route::get('getUmkm', [HomeController::class, 'getData'])->name('umkm.getData');
+
+Route::get('exportExcel', [AdminController::class, 'exportExcel'])->name('admin.exportExcel');

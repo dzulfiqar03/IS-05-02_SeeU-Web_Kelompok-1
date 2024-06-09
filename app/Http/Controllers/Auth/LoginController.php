@@ -30,8 +30,8 @@ class LoginController extends Controller
     {
         $role = Auth::user()->role;
 
-        if($role == "admin"){
-            return '/adminDashboard';
+        if($role == "admin") {
+            return '/admin';
         }else{
             return '/home';
         }
@@ -45,6 +45,6 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
-       
+
     }
 }

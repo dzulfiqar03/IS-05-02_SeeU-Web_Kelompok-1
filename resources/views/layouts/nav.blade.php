@@ -1,46 +1,73 @@
-@php
-    $currentRouteName = Route::currentRouteName();
-@endphp
-<nav class="navbar navbar-expand-md navbar-dark mainColor">
-    <div class="container">
-        <a href="" class="navbar-brand mb-0 h1"> <img src="{{ Vite::asset('resources/images/Logo/mainLogo-light-txt.png') }}" width="100px"
-                alt="image" class="d-block w-10 m-auto">
-        </a>
-        <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse  justify-content-between" id="navbarSupportedContent">
-            <hr class="d-md-none text-white-50">
-            <ul class="navbar-nav flex-row flex-wrap">
-                <li class="nav-item col-2 col-md-auto"><a href="" class="nav-link">Home</a></li>
-                <li class="nav-item col-2 col-md-auto"><a href=""
-                        class="nav-link
-@if ($currentRouteName == 'employees.index') active @endif">Employee</a></li>
-            </ul>
-            <hr class="d-md-none text-white-50">
+<nav class="navbar mainColor">
+    <div class="container-fluid">
+        <div class="sideCont d-flex">
+            <div class="btnTgl1" id="btnTgl1">
+                <button class="navbar-toggler" type="button" id="toogleBtn" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon toogleIcon"></span>
+                </button>
 
-            @if ($currentRouteName == 'guest')
-                <div class="d-flex gap-3">
-                    <a id="profileButton" class="btn btn-outline-light my-2 ms-md-auto"
-                        href="{{ route('login') }}">Login</a>
-                    <a id="profileButton" class="btn btn-outline-light
-my-2 ms-md-auto"
-                        href="{{ route('register') }}">Register</a>
-                </div>
+            </div>
+
+            <div class="btnTgl2" id="btnTgl2">
+                <button class="navbar-toggler backToogle" type="button" id="backToogle" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <a class="navbar-brand px-3 text-white fw-bold" href="#">Home</a>
+            </div>
+        </div>
+
+        <button class="navbar-toggler bg-warning text-dark p-2" type="button" data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+            <i class="bi-person-circle"></i>
+            Welcome,
+
+            @if (Auth::check())
+                {{ Auth::user()->userName }}!
             @else
-                <a id="profileButton" class="btn btn-outline-light
-my-2 ms-md-auto"><i
-                        class="bi-person-circle me-1"></i>Welcome,
-
-                    @if (Auth::check())
-                        {{ Auth::user()->userName }}!
-                    @else
-                        Guest!
-                    @endif
-                </a>
+                Guest!
             @endif
+        </button>
+        <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar"
+            aria-labelledby="offcanvasDarkNavbarLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">My Profile</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                    aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                    <li class="nav-item mb-5">
+                        @if (Auth::check())
+                            <img class="rounded-circle"
+                                src="{{ Vite::asset('/public/resources/images/members/' . Auth::user()->original_filename) }}"
+                                width="200px" height="200px" alt="image">
+                        @else
+                        <img class="mx-auto mb-5" src="{{ Vite::asset('resources/images/profile.png') }}"
+                        width="200px" height="200px" alt="image">
+            
+                        @endif
 
+                    </li>
+                    <li class="nav-item">
+                        @if (Auth::check())
+                            <h5 class="fw-bold">{{ Auth::user()->fullName }}</h5>
+                        @endif
+                    </li>
+                    <li class="nav-item">
+                        @if (Auth::check())
+                            <h5 class="fw-bold">{{ Auth::user()->email }}</h5>
+                        @endif
+                    </li>
 
+                    <li class="nav-item mt-5">
+                        @if (Auth::check())
+                            <h5 class="fw-bold">{{ Auth::user()->role }}</h5>
+                        @endif
+                    </li>
+
+                </ul>
+
+            </div>
         </div>
     </div>
 </nav>
