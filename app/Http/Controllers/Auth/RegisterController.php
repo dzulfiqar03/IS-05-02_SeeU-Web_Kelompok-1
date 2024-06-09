@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Members;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class RegisterController extends Controller
@@ -39,7 +40,7 @@ class RegisterController extends Controller
      * @return void
      */
 
-     public function __construct()
+    public function __construct()
     {
         $this->middleware('guest');
     }
@@ -69,7 +70,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $imageName = time().'.'.$data['imgFile']->extension();
+        $imageName = time() . '.' . $data['imgFile']->extension();
         $data['imgFile']->storeAs('public/images', $imageName);
         $data['imgFile']->move('resources/images/members', $imageName);
 
@@ -84,6 +85,17 @@ class RegisterController extends Controller
             'encrypted_filename' => Hash::make($imageName),
         ]);
 
+    }
+
+    public function apiReg(Request $request)
+    {
+
+        $user = $this->$request->email;
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Sukses register',
+        ]);
     }
 
 

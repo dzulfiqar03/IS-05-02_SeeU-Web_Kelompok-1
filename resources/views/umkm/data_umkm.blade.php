@@ -30,20 +30,19 @@
                             src="{{ Vite::asset('/public/resources/images/members/' . Auth::user()->original_filename) }}"
                             width="200px" alt="image">
                     @else
-                    <img class="mx-auto mb-5" src="{{ Vite::asset('resources/images/profile.png') }}"
-                    width="200px" height="200px" alt="image">
-                            @endif
+                        <img class="mx-auto mb-5" src="{{ Vite::asset('resources/images/profile.png') }}" width="200px"
+                            height="200px" alt="image">
+                    @endif
 
 
 
                     <div class="w-100 mt-5 h-100">
                         <div class="d-grid">
-                            <a class="btn btn-warning  fw-bold mb-3" href="{{ route('admin.index') }}">Home</a>
+                            <a class="btn btn-dark fw-bold mb-3" href="{{ route('admin.index') }}"
+                                style="color:rgb(70, 70, 70)">Home</a>
 
-                            <a class="btn btn-dark  mb-3" href="{{ route('dataUmkm') }}"
-                                style="color:rgb(70, 70, 70)">UMKM</a>
+                            <a class="btn btn-warning  mb-3" href="{{ route('dataUmkm') }}">UMKM</a>
                             <a class="btn btn-dark  mb-3" style="color:rgb(70, 70, 70)">About Us</a>
-
                         </div>
 
 
@@ -58,49 +57,42 @@
                 </div>
 
             </div>
-            <div class="col rightContent bg-white">
+            <div class="col rightContent bg-white vh-100">
                 @include('layouts.nav')
-                <div class="container mt-4 bg-white">
+                <div class="container mt-4">
+                    <div class="row mb-0">
 
-                    <div class="categoryBody mb-5 mt-5">
-                        <div class="container text-center mb-5">
-                            <div class="row">
-                                <div class="col">
-                                    <div class="content  bg-dark text-white rounded">
-                                        <h3 class=" py-2 w-100 rounded fw-bold">Culinary</h3>
-                                        <h5 class="fw-bold">{{ $culinary->count() }}</h5>
-                                    </div>
+                        <div class="col-lg-3 col-xl-6">
+                            <ul class="list-inline mb-0 float-end">
+                                <li class="list-inline-item">
+                                    <a href="{{ route('admin.exportExcel') }}" class="btn btn-outline-success">
+                                        <i class="bi bi-download me-1"></i> to Excel
+                                    </a>
+                                </li>
 
-                                </div>
-                                <div class="col">
-                                    <div class="content  bg-dark text-white rounded">
-                                        <h3 class="py-2 w-100 rounded fw-bold">Fashion</h3>
-                                        <h5 class="fw-bold">{{ $fashion->count() }}</h5>
-
-                                    </div>
-
-                                </div>
-                                <div class="col">
-                                    <div class="content  bg-dark text-white rounded">
-                                        <h3 class=" py-2 w-100 rounded  fw-bold">Service</h3>
-                                        <h5 class="fw-bold">{{ $service->count() }}</h5>
-
-                                    </div>
-
-                                </div>
-                            </div>
+                            </ul>
                         </div>
-
-                        <div class="p-6 m-20 bg-white rounded shadow">
-                            {!! $chart->container() !!}
-                        </div>
-                    
-                        <script src="{{ $chart->cdn() }}"></script>
-                    
-                        {{ $chart->script() }}
-                    
                     </div>
 
+                    <hr>
+                    <div class="table-responsive border p-3 rounded-3">
+                        <table class="table table-bordered table-hover table-striped mb-0 bg-white" id="umkmTable">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>No.</th>
+                                    <th>UMKM</th>
+                                    <th>Description</th>
+                                    <th>Email</th>
+                                    <th>Telephone Number</th>
+                                    <th>Kategori</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                        </table>
+
+
+                    </div>
                 </div>
             </div>
         </div>
