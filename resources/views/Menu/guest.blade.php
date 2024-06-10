@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Guest Page</title>
+    <title>SeeU - Sistem Informasi UMKM</title>
+    <link rel="shortcut icon" href="/resources/images/Logo/mainLogo.png" type="image/svg+xml">
     @vite('resources/sass/app.scss')
 
 </head>

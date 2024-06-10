@@ -5,7 +5,7 @@
             <th>UMKM</th>
             <th>Description</th>
             <th>Email</th>
-            <th>Telephone Number</th>
+            <th>Address</th>
             <th>Position</th>
         </tr>
     </thead>
@@ -16,8 +16,8 @@
                 <td>{{ $umkm->umkm }}</td>
                 <td>{{ $umkm->description }}</td>
                 <td>{{ $umkm->email }}</td>
+                <td>{{ $umkm->address }}</td>
                 <td>{{ $umkm->telephone_number }}</td>
-                <td>{{ $umkm->category->name }}</td>
             </tr>
         @endforeach
     </tbody>

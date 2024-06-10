@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Main Menu</title>
+    <title>SeeU - Sistem Informasi UMKM</title>
+    <link rel="shortcut icon" href="/resources/images/Logo/mainLogo.png" type="image/svg+xml">
     @vite('resources/sass/app.scss')
 
     <style>
@@ -94,11 +95,11 @@
                         <div class="p-6 m-20 bg-white rounded shadow">
                             {!! $chart->container() !!}
                         </div>
-                    
+
                         <script src="{{ $chart->cdn() }}"></script>
-                    
+
                         {{ $chart->script() }}
-                    
+
                     </div>
 
                 </div>

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
+use App\Http\Controllers\dataUmkmController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogOutController;
@@ -39,7 +40,7 @@ Route::get('/guestPage', function () {
 Route::middleware('isLogin')->group(function () {
 
 
-    Route::get('/admin', [AdminController::class, 'index'])->name('admin');
+    Route::get('/admin', [AdminController::class, 'index'])->name('admins');
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 });
@@ -58,10 +59,12 @@ Route::resource('umkm', UMKMController::class);
 Route::resource('admin', AdminController::class);
 
 
-Route::get('/dataUMKM', function () {
-    return view('umkm.data_umkm');
-})->name('dataUmkm');
+
+Route::get('/dataUmkm', [dataUmkmController::class, 'index'])->name('dataUmkm');
+
 
 Route::get('getUmkm', [HomeController::class, 'getData'])->name('umkm.getData');
 
 Route::get('exportExcel', [AdminController::class, 'exportExcel'])->name('admin.exportExcel');
+Route::get('exportPdf', [AdminController::class, 'exportPdf'])->name('admin.exportPdf');
+Route::get('download-file/{umkmId}', [AdminController::class, 'downloadFile'])->name('admin.downloadFile');

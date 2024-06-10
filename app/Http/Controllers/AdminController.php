@@ -8,7 +8,10 @@ use App\Models\Category;
 use App\Models\Umkm;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Maatwebsite\Excel\Facades\Excel;
+use PDF;
+use Illuminate\Support\Str;
 
 class AdminController extends Controller
 {
@@ -58,7 +61,10 @@ class AdminController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $umkm = Umkm::find($id);
+
+        return view('umkm.show', compact('umkm'));
+
     }
 
     /**
@@ -74,7 +80,49 @@ class AdminController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+         // Get File
+         $file = $request->file('usahaDoc');
+         $photo = $request->file('imgPhoto');
+ 
+         if ($file != null && $photo != null) {
+             $original_filesname = $file->getClientOriginalName();
+             $encrypted_filesname = $file->hashName();
+ 
+             // Store File
+             $file->store('public/files/documentUser/suratIzin');
+             $file->move('resources/images/umkm/documentUMKM', $original_filesname);
+ 
+             $original_photoname = $photo->getClientOriginalName();
+             $encrypted_photoname = $photo->hashName();
+ 
+             // Store File
+             $photo->store('public/files/documentUser/profileUMKM');
+             $photo->move('resources/images/umkm/profileUMKM', $original_photoname);
+ 
+         }
+ 
+         // ELOQUENT
+         $umkm = new Umkm;
+         $umkm->umkm = $request->umkm;
+         $umkm->description = $request->description;
+         $umkm->email = $request->email;
+         $umkm->address = $request->address;
+         $umkm->telephone_number = $request->telNum;
+         $umkm->category_id = $request->category;
+ 
+         if ($file != null && $photo != null) {
+             $umkm->original_photoname = $original_photoname;
+             $umkm->encrypted_photoname = $encrypted_photoname;
+ 
+             $umkm->original_filesname = $original_filesname;
+             $umkm->encrypted_filesname = $encrypted_filesname;
+         }
+ 
+         $umkm->save();
+ 
+ 
+ 
+         return redirect()->route('dataUmkm');
     }
 
     /**
@@ -86,8 +134,27 @@ class AdminController extends Controller
     }
 
     public function exportExcel()
-{
-    return Excel::download(new UmkmExport, 'umkm.xlsx');
-}
+    {
+        return Excel::download(new UmkmExport, 'umkm.xlsx');
+    }
 
+    public function exportPdf()
+    {
+        $umkm = Umkm::all();
+
+        $pdf = PDF::loadView('umkm.export_pdf', compact('umkm'));
+
+        return $pdf->download('umkm.pdf');
+    }
+
+    public function downloadFile($umkmId)
+    {
+        $umkm = Umkm::find($umkmId);
+        $encryptedFilename = 'public/files/documentUser/suratIzin/' . $umkm->encrypted_filesname;
+        $downloadFilename = Str::lower($umkm->umkm.'_cv.pdf');
+
+        if (Storage::exists($encryptedFilename)) {
+            return Storage::download($encryptedFilename, $downloadFilename);
+        }
+    }
 }
