@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\Umkm;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -134,7 +135,7 @@ class UMKMController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+       //
     }
 
     /**
@@ -142,6 +143,19 @@ class UMKMController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $umkm = Umkm::find($id);
+
+        if ($umkm) {
+            if (Storage::disk('public')->exists('files/documentUser/suratIzin/' . $umkm->encrypted_filesname) && Storage::disk('public')->exists('files/documentUser/profileUMKM/' . $umkm->encrypted_photoname)) {
+                Storage::disk('public')->delete('files/documentUser/suratIzin/' . $umkm->encrypted_filesname);
+                Storage::disk('public')->delete('files/documentUser/profileUMKM/' . $umkm->encrypted_filesname);                
+                echo 'File deleted successfully.';
+            } else {
+                echo 'File not found.';
+            }
+        }
+        $umkm->delete();
+
+        return redirect()->route('dataUmkm');
     }
 }

@@ -5,8 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>home</title>
+    <title>SeeU - Sistem Informasi UMKM</title>
+    <link rel="shortcut icon" href="/resources/images/Logo/mainLogo.png" type="image/svg+xml">
+
     @vite('resources/sass/app.scss')
+    <link rel="shortcut icon" href="/resources/images/Logo/mainLogo.png" type="image/svg+xml">
 
     <style>
         body {
@@ -27,7 +30,7 @@
 
                     @if (Auth::check())
                         <img class="mx-auto mb-5"
-                            src="{{ Vite::asset('/public/resources/images/members/' . Auth::user()->original_filename) }}"
+                            src="{{ Vite::asset('resources/images/Logo/logo_verti.png')}}"
                             width="200px" alt="image">
                     @else
                         <img class="mx-auto mb-5" src="" width="200px" alt="image">
@@ -61,35 +64,24 @@
                 @include('layouts.nav')
 
                 <div class="heroSection bg-white">
-                    <div id="carouselExampleSlidesOnly" class="carousel slide mx-auto" data-bs-ride="carousel">
+                    <div id="carouselExampleSlidesOnly" class="carousel mt-0 mb-0 slide mx-auto" data-bs-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img src="{{ Vite::asset('resources/images/vector/Shoppinglogin1.png') }}"
-                                    alt="image" width="400px" class="d-block w-10 m-auto">
-                                <div class="carousel-caption capt d-none d-md-block">
-                                    <h5 class="fw-bold">CARI KEBUTUHAN ANDA</h5>
-                                    <p>Kami menyediakan tempat untuk anda menemukan apa yang dibutuhkan</p>
-                                </div>
+                                <img src="{{ Vite::asset('resources/images/1.png') }}"
+                                    alt="image"  class="d-block vw-100 m-auto">
+                              
 
                             </div>
                             <div class="carousel-item">
-                                <img src="{{ Vite::asset('resources/images/vector/Shoppinglogin2.png') }}"
-                                    alt="image" width="400px" class="d-block w-10 m-auto">
-                                <div class="carousel-caption capt d-none d-md-block">
-                                    <h5 class="fw-bold">PROMOSI UMKM GRATIS?</h5>
-
-                                    <p>Mari bersama kami dan menjadi mitra seumur hidup</p>
-                                </div>
+                                <img src="{{ Vite::asset('resources/images/2.png') }}"
+                                    alt="image"  class="d-block vw-100 m-auto">
+                              
 
                             </div>
                             <div class="carousel-item ">
-                                <img src="{{ Vite::asset('resources/images/vector/Shoppinglogin3.png') }}"
-                                    alt="image" width="400px" class="d-block w-10 m-auto">
-                                <div class="carousel-caption capt d-none d-md-block">
-                                    <h5 class="fw-bold">TENTUKAN KUALITAS</h5>
+                                <img src="{{ Vite::asset('resources/images/3.png') }}"
+                                    alt="image" class="d-block vw-100 m-auto">
 
-                                    <p>Kami menyediakan fitur penilaian berdasarkan survey pelanggan</p>
-                                </div>
 
                             </div>
                         </div>
@@ -99,7 +91,7 @@
 
                
                 <div class="umkmList bg-white">
-                     <hr><div class="container bg-white">
+                     <div class="container bg-white">
                         <div class="row mb-0">
                             <div class="topUmkmList mt-5">
                                 

@@ -1,11 +1,17 @@
 <div class="d-flex">
-    <a href="{{ route('umkm.show', ['umkm' => $umkm->id]) }}"
-        class="btn btn-outline-dark btn-sm me-2"><i
-            class="bi-person-lines-fill"></i></a>
-    <a href="{{ route('umkm.edit', ['umkm' => $umkm->id]) }}"
-        class="btn btn-outline-dark btn-sm me-2"><i class="bi-pencil-square"></i></a>
-    <div>
+
+    <button type="button" class="btn btn-outline-dark btn-sm me-2" data-bs-toggle="modal"
+        data-bs-target="#showData{{ $umkm->id }}">
+        <i class="bi-person-lines-fill"></i>
+    </button>
+
+    <button type="button" class="btn btn-outline-dark btn-sm me-2" data-bs-toggle="modal"
+    data-bs-target="#editData{{ $umkm->id }}">
+    <i class="bi-pencil-square"></i>
+</button>
+
     
+
 
         <form action="{{ route('umkm.destroy', ['umkm' => $umkm->id]) }}" method="POST">
             @csrf
