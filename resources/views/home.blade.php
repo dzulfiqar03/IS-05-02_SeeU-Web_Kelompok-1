@@ -135,93 +135,100 @@
 
                         <div class="item-body d-flex">
                             <div class="sub-body1">
-                                    <div class="text-center item2">
-                                        <div class="row product-list2 w-100">
+                                <div class="text-center item2">
+                                    <div class="row product-list2 w-100">
 
-                                            @if ($culinary->isEmpty())
+                                        @if ($culinary->isEmpty())
                                             <p>Kosong</p>
-                                            @endif
-                                                @foreach ($culinary as $umkms)
-                                                    @if ($umkmCount <= 6)
-                                                        <div class="col"><button class="itemBtn bg-none p-0">
-                                                                <div class="card" style="width: 18rem; height:344px">
-                                                                    <img class="card-img-top"
-                                                                        src="{{ Vite::asset('/public/resources/images/umkm/profileUMKM/' . $umkms->original_photoname) }}"
-                                                                        width="1366px" height="200px" alt="image">
-                                                                    <div class="card-body">
-                                                                        <h5 class="card-title">{{ $umkms->umkm }}</h5>
-                                                                        <p class="card-text" style="height:48px">
-                                                                            {{ $umkms->description }}
-                                                                        </p>
-                                                                        <a href="#" class="btn btn-primary">Go
-                                                                            somewhere</a>
-                                                                    </div>
-                                                                </div>
+                                        @endif
+                                        @foreach ($culinary as $umkms)
+                                            @if ($umkmCount <= 6)
+                                                <div class="col">
+
+
+                                                    <a href="{{ route('detail', ['id' => $umkms->id]) }}">
+                                                        <div class="card" style="width: 18rem; height:344px">
+                                                            <img class="card-img-top"
+                                                                src="{{ Vite::asset('/public/resources/images/umkm/profileUMKM/' . $umkms->original_photoname) }}"
+                                                                width="1366px" height="200px" alt="image">
+                                                            <div class="card-body">
+                                                                <h5 class="card-title">{{ $umkms->umkm }}</h5>
+                                                                <p class="card-text" style="height:48px">
+                                                                    {{ $umkms->description }}
+                                                                </p>
+                                                                <a href="{{ route('detail', ['id' => $umkms->id]) }}"
+                                                                    class="btn btn-primary">Go
+                                                                    somewhere</a>
+
+                                                            </div>
                                                         </div>
-                                                    @endif
-                                                @endforeach
-                                        </div>
+                                                    </a>
+
+                                                </div>
+                                            @endif
+                                        @endforeach
                                     </div>
+                                </div>
 
                             </div>
 
 
                             <div class="sub-body2">
-                                    <div class="text-center item3">
-                                        <div class="row product-list3">
-                                            @if ($fashion->isEmpty())
+                                <div class="text-center item3">
+                                    <div class="row product-list3">
+                                        @if ($fashion->isEmpty())
                                             <p>Kosong</p>
-                                            @endif
-                                                @foreach ($fashion as $umkms)
-                                                    @if ($umkmCount <= 6)
-                                                        <div class="col">
-                                                            <div class="card" style="width: 18rem;">
-                                                                <img class="card-img-top"
-                                                                    src="{{ Vite::asset('/public/resources/images/umkm/profileUMKM/' . $umkms->original_photoname) }}"
-                                                                    width="1366px" height="200px" alt="image">
-                                                                <div class="card-body">
-                                                                    <h5 class="card-title">{{ $umkms->umkm }}</h5>
-                                                                    <p class="card-text">{{ $umkms->description }}</p>
-                                                                    <a href="#" class="btn btn-primary">Go
-                                                                        somewhere</a>
-                                                                </div>
-                                                            </div>
+                                        @endif
+                                        @foreach ($fashion as $umkms)
+                                            @if ($umkmCount <= 6)
+                                                <div class="col">
+                                                    <div class="card" style="width: 18rem;">
+                                                        <img class="card-img-top"
+                                                            src="{{ Vite::asset('/public/resources/images/umkm/profileUMKM/' . $umkms->original_photoname) }}"
+                                                            width="1366px" height="200px" alt="image">
+                                                        <div class="card-body">
+                                                            <h5 class="card-title">{{ $umkms->umkm }}</h5>
+                                                            <p class="card-text">{{ $umkms->description }}</p>
+                                                            <a href="#" class="btn btn-primary">Go
+                                                                somewhere</a>
                                                         </div>
-                                                    @endif
-                                                @endforeach
-                                        </div>
+                                                    </div>
+                                                </div>
+                                            @endif
+                                        @endforeach
                                     </div>
+                                </div>
                             </div>
 
 
                             <div class="sub-body3">
-                                    <div class="text-center item4">
-                                        <div class="row product-list4">
+                                <div class="text-center item4">
+                                    <div class="row product-list4">
 
 
-                                            @if ($service->isEmpty())
+                                        @if ($service->isEmpty())
                                             <p>Kosong</p>
-                                            @endif
+                                        @endif
 
-                                                @foreach ($service as $umkms)
-                                                    @if ($umkmCount <= 6)
-                                                        <div class="col">
-                                                            <div class="card" style="width: 18rem;">
-                                                                <img class="card-img-top"
-                                                                    src="{{ Vite::asset('/public/resources/images/umkm/profileUMKM/' . $umkms->original_photoname) }}"
-                                                                    width="1366px" height="200px" alt="image">
-                                                                <div class="card-body">
-                                                                    <h5 class="card-title">{{ $umkms->umkm }}</h5>
-                                                                    <p class="card-text">{{ $umkms->description }}</p>
-                                                                    <a href="#" class="btn btn-primary">Go
-                                                                        somewhere</a>
-                                                                </div>
-                                                            </div>
+                                        @foreach ($service as $umkms)
+                                            @if ($umkmCount <= 6)
+                                                <div class="col">
+                                                    <div class="card" style="width: 18rem;">
+                                                        <img class="card-img-top"
+                                                            src="{{ Vite::asset('/public/resources/images/umkm/profileUMKM/' . $umkms->original_photoname) }}"
+                                                            width="1366px" height="200px" alt="image">
+                                                        <div class="card-body">
+                                                            <h5 class="card-title">{{ $umkms->umkm }}</h5>
+                                                            <p class="card-text">{{ $umkms->description }}</p>
+                                                            <a href="#" class="btn btn-primary">Go
+                                                                somewhere</a>
                                                         </div>
-                                                    @endif
-                                                @endforeach
-                                        </div>
+                                                    </div>
+                                                </div>
+                                            @endif
+                                        @endforeach
                                     </div>
+                                </div>
                             </div>
 
 

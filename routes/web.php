@@ -7,7 +7,9 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogOutController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\Umkm_detailController;
 use App\Http\Controllers\UMKMController;
+use App\Http\Controllers\umkmDetailController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
@@ -68,3 +70,5 @@ Route::get('getUmkm', [HomeController::class, 'getData'])->name('umkm.getData');
 Route::get('exportExcel', [AdminController::class, 'exportExcel'])->name('admin.exportExcel');
 Route::get('exportPdf', [AdminController::class, 'exportPdf'])->name('admin.exportPdf');
 Route::get('download-file/{umkmId}', [AdminController::class, 'downloadFile'])->name('admin.downloadFile');
+
+Route::get('/umkmDetail/{id}', [umkmDetailController::class, 'index'])->name('detail');
