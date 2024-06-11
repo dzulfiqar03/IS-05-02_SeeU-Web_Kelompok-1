@@ -38,7 +38,7 @@
         <tbody>
             @foreach ($umkm as $index => $umkm)
                 <tr>
-                    <td align="center">{{ $index + 1 }}</td>
+                    <td allign="center">{{ $index + 1 }}</td>
                     <td>{{ $umkm->umkm }}</td>
                     <td>{{ $umkm->description }}</td>
                     <td>{{ $umkm->email }}</td>

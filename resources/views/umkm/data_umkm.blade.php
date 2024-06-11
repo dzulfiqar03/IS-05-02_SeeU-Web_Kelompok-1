@@ -117,7 +117,7 @@
                         <div class="p-3">
                             <div class="mb-3 text-center">
                                 <i class="bi-person-circle fs-1"></i>
-                                <h4>Detail dataUmkm</h4>
+                                <h4>Detail data Umkm</h4>
                             </div>
                             <hr>
                             <div class="col">
@@ -136,10 +136,6 @@
                                 <div class="col-md-12 mb-3">
                                     <label for="address" class="form-label">Address</label>
                                     <h5>{{ $dataUmkm->address }}</h5>
-                                </div>
-                                <div class="col-md-12 mb-3">
-                                    <label for="address" class="form-label">Address</label>
-                                    <h5>{{ $dataUmkm->telephone_number }}</h5>
                                 </div>
                                 <div class="col-md-12 mb-3">
                                     <label for="age" class="form-label">category</label>
