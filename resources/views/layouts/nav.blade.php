@@ -1,3 +1,7 @@
+@php
+    $currentRouteName = Route::currentRouteName();
+@endphp
+
 <nav class="navbar mainColor">
     <div class="container-fluid">
         <div class="sideCont d-flex">
@@ -42,13 +46,13 @@
                                 src="{{ Vite::asset('/public/resources/images/members/' . Auth::user()->original_filename) }}"
                                 width="200px" height="200px" alt="image">
                         @else
-                        <img class="mx-auto mb-5" src="{{ Vite::asset('resources/images/profile.png') }}"
-                        width="200px" height="200px" alt="image">
-            
+                            <img class="mx-auto mb-5" src="{{ Vite::asset('/resources/images/profile.png') }}"
+                                width="200px" height="200px" alt="image">
                         @endif
 
                     </li>
                     <li class="nav-item">
+
                         @if (Auth::check())
                             <h5 class="fw-bold">{{ Auth::user()->fullName }}</h5>
                         @endif
