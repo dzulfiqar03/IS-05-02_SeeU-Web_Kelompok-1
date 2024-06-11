@@ -23,8 +23,8 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('umkm', function (Blueprint $table) {
-            $table->dropColumn('encrypted_photoname');
             $table->dropColumn('original_photoname');
+            $table->dropColumn('encrypted_photoname');
         });
     }
 };

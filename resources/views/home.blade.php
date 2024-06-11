@@ -16,6 +16,11 @@
             background-color: rgb(22, 22, 22);
 
         }
+
+        .itemBtn {
+            width: max-content;
+            border: 0px
+        }
     </style>
 </head>
 
@@ -29,8 +34,7 @@
                 <div class="topContent h-100">
 
                     @if (Auth::check())
-                        <img class="mx-auto mb-5"
-                            src="{{ Vite::asset('resources/images/Logo/logo_verti.png')}}"
+                        <img class="mx-auto mb-5" src="{{ Vite::asset('resources/images/Logo/logo_verti.png') }}"
                             width="200px" alt="image">
                     @else
                         <img class="mx-auto mb-5" src="" width="200px" alt="image">
@@ -42,7 +46,8 @@
                         <div class="d-grid">
                             <a class="btn btn-warning fw-bold btnHome mb-3" href="{{ route('home') }}">Home</a>
 
-                            <a class="btn btn-dark mb-3" style="color:rgb(70, 70, 70)">UMKM</a>
+                            <a class="btn btn-dark mb-3" style="color:rgb(70, 70, 70)"
+                                href="{{ route('home') }}">UMKM</a>
                             <a class="btn btn-dark  mb-3" style="color:rgb(70, 70, 70)">About Us</a>
 
                         </div>
@@ -60,27 +65,28 @@
 
             </div>
 
-            <div class="col rightContent bg-white vh-100">
+            <div class="col rightContent bg-white vh-100 ">
                 @include('layouts.nav')
 
                 <div class="heroSection bg-white">
-                    <div id="carouselExampleSlidesOnly" class="carousel mt-0 mb-0 slide mx-auto" data-bs-ride="carousel">
+                    <div id="carouselExampleSlidesOnly" class="carousel mt-0 mb-0 slide mx-auto"
+                        data-bs-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img src="{{ Vite::asset('resources/images/1.png') }}"
-                                    alt="image"  class="d-block vw-100 m-auto">
-                              
+                                <img src="{{ Vite::asset('resources/images/1.png') }}" alt="image"
+                                    class="d-block vw-100 m-auto">
+
 
                             </div>
                             <div class="carousel-item">
-                                <img src="{{ Vite::asset('resources/images/2.png') }}"
-                                    alt="image"  class="d-block vw-100 m-auto">
-                              
+                                <img src="{{ Vite::asset('resources/images/2.png') }}" alt="image"
+                                    class="d-block vw-100 m-auto">
+
 
                             </div>
                             <div class="carousel-item ">
-                                <img src="{{ Vite::asset('resources/images/3.png') }}"
-                                    alt="image" class="d-block vw-100 m-auto">
+                                <img src="{{ Vite::asset('resources/images/3.png') }}" alt="image"
+                                    class="d-block vw-100 m-auto">
 
 
                             </div>
@@ -89,12 +95,12 @@
                     </div>
                 </div>
 
-               
+
                 <div class="umkmList bg-white">
-                     <div class="container bg-white">
+                    <div class="container bg-white">
                         <div class="row mb-0">
                             <div class="topUmkmList mt-5">
-                                
+
                                 <h1 class="fw-bold">UMKM</h1>
                                 <div class="col-lg-3 col-xl-2">
 
@@ -126,49 +132,46 @@
                                 </div>
                             </div>
                         </div>
+
                         <div class="item-body d-flex">
                             <div class="sub-body1">
-                                @if ($culinary->count() > 0)
                                     <div class="text-center item2">
                                         <div class="row product-list2 w-100">
 
-                                            @if ($umkm->isEmpty())
-                                                <h1>Kosong</h1>
-                                            @else
+                                            @if ($culinary->isEmpty())
+                                            <p>Kosong</p>
+                                            @endif
                                                 @foreach ($culinary as $umkms)
                                                     @if ($umkmCount <= 6)
-                                                        <div class="col">
-                                                            <div class="card" style="width: 18rem;">
-                                                                <img class="card-img-top"
-                                                                    src="{{ Vite::asset('/public/resources/images/umkm/profileUMKM/' . $umkms->original_photoname) }}"
-                                                                    width="1366px" height="200px" alt="image">
-                                                                <div class="card-body">
-                                                                    <h5 class="card-title">{{ $umkms->umkm }}</h5>
-                                                                    <p class="card-text">{{ $umkms->description }}</p>
-                                                                    <a href="#" class="btn btn-primary">Go
-                                                                        somewhere</a>
+                                                        <div class="col"><button class="itemBtn bg-none p-0">
+                                                                <div class="card" style="width: 18rem; height:344px">
+                                                                    <img class="card-img-top"
+                                                                        src="{{ Vite::asset('/public/resources/images/umkm/profileUMKM/' . $umkms->original_photoname) }}"
+                                                                        width="1366px" height="200px" alt="image">
+                                                                    <div class="card-body">
+                                                                        <h5 class="card-title">{{ $umkms->umkm }}</h5>
+                                                                        <p class="card-text" style="height:48px">
+                                                                            {{ $umkms->description }}
+                                                                        </p>
+                                                                        <a href="#" class="btn btn-primary">Go
+                                                                            somewhere</a>
+                                                                    </div>
                                                                 </div>
-                                                            </div>
                                                         </div>
                                                     @endif
                                                 @endforeach
-                                            @endif
                                         </div>
                                     </div>
-                                @else
-                                    <p>No UMKM found.</p>
-                                @endif
+
                             </div>
 
 
                             <div class="sub-body2">
-                                @if ($fashion->count() > 0)
                                     <div class="text-center item3">
                                         <div class="row product-list3">
-
-                                            @if ($umkm->isEmpty())
-                                                <h1>Kosong</h1>
-                                            @else
+                                            @if ($fashion->isEmpty())
+                                            <p>Kosong</p>
+                                            @endif
                                                 @foreach ($fashion as $umkms)
                                                     @if ($umkmCount <= 6)
                                                         <div class="col">
@@ -186,23 +189,20 @@
                                                         </div>
                                                     @endif
                                                 @endforeach
-                                            @endif
                                         </div>
                                     </div>
-                                @else
-                                    <p>No UMKM found.</p>
-                                @endif
                             </div>
 
 
                             <div class="sub-body3">
-                                @if ($service->count() > 0)
                                     <div class="text-center item4">
                                         <div class="row product-list4">
 
-                                            @if ($umkm->isEmpty())
-                                                <h1>Kosong</h1>
-                                            @else
+
+                                            @if ($service->isEmpty())
+                                            <p>Kosong</p>
+                                            @endif
+
                                                 @foreach ($service as $umkms)
                                                     @if ($umkmCount <= 6)
                                                         <div class="col">
@@ -220,12 +220,8 @@
                                                         </div>
                                                     @endif
                                                 @endforeach
-                                            @endif
                                         </div>
                                     </div>
-                                @else
-                                    <p>No UMKM found.</p>
-                                @endif
                             </div>
 
 
@@ -403,11 +399,11 @@
             btn2.classList.remove("active");
             btn4.classList.remove("active");
 
-            product2.style.transform = "translateX(-1140px)";
+            product2.style.transform = "translateX(-1170px)";
             product2.style.transition = "3s";
-            product3.style.transform = "translateX(-1140px)";
+            product3.style.transform = "translateX(-1170px)";
             product3.style.transition = "3s";
-            product4.style.transform = "translateX(-1140px)";
+            product4.style.transform = "translateX(-1170px)";
             product4.style.transition = "3s";
         });
 
@@ -416,11 +412,11 @@
             btn2.classList.remove("active");
             btn3.classList.remove("active");
 
-            product2.style.transform = "translateX(-2280px)";
+            product2.style.transform = "translateX(-2330px)";
             product2.style.transition = "3s";
-            product3.style.transform = "translateX(-2280px)";
+            product3.style.transform = "translateX(-2330px)";
             product3.style.transition = "3s";
-            product4.style.transform = "translateX(-2280px)";
+            product4.style.transform = "translateX(-2330px)";
             product4.style.transition = "3s";
         });
     </script>
