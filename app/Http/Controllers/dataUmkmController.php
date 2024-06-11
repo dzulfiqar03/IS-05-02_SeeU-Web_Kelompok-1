@@ -13,7 +13,6 @@ class dataUmkmController extends Controller
         $category = Category::all();
         $umkm = Umkm::all();
 
-        Alert::success('Deleted Successfully', 'umkm Data Deleted Successfully.');
 
         return view('umkm.data_umkm', compact('category','umkm'));
 

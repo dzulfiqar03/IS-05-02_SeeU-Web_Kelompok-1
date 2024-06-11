@@ -74,19 +74,19 @@
                         <div class="carousel-inner">
                             <div class="carousel-item active">
                                 <img src="{{ Vite::asset('resources/images/1.png') }}" alt="image"
-                                    class="d-block vw-100 m-auto">
+                                    class="d-block w-100 m-auto">
 
 
                             </div>
                             <div class="carousel-item">
                                 <img src="{{ Vite::asset('resources/images/2.png') }}" alt="image"
-                                    class="d-block vw-100 m-auto">
+                                    class="d-block w-100 m-auto">
 
 
                             </div>
                             <div class="carousel-item ">
                                 <img src="{{ Vite::asset('resources/images/3.png') }}" alt="image"
-                                    class="d-block vw-100 m-auto">
+                                    class="d-block w-100 m-auto">
 
 
                             </div>
@@ -144,9 +144,8 @@
                                         @foreach ($culinary as $umkms)
                                             @if ($umkmCount <= 6)
                                                 <div class="col">
-
-
                                                     <a href="{{ route('detail', ['id' => $umkms->id]) }}">
+
                                                         <div class="card" style="width: 18rem; height:344px">
                                                             <img class="card-img-top"
                                                                 src="{{ Vite::asset('/public/resources/images/umkm/profileUMKM/' . $umkms->original_photoname) }}"
@@ -156,7 +155,7 @@
                                                                 <p class="card-text" style="height:48px">
                                                                     {{ $umkms->description }}
                                                                 </p>
-                                                                <a href="{{ route('detail', ['id' => $umkms->id]) }}"
+                                                                <a href=""
                                                                     class="btn btn-primary">Go
                                                                     somewhere</a>
 

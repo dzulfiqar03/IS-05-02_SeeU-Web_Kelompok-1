@@ -17,7 +17,7 @@ class UMKMController extends Controller
      */
     public function index()
     {
-        Alert::success('Added Successfully', 'umkm Data Added Successfully.');
+        Alert::success('Added Successfully', 'UMKM Data Added Successfully.');
         $category = Category::all();
         $user = User::all();
         $umkm = Umkm::all();
@@ -148,7 +148,7 @@ class UMKMController extends Controller
         if ($umkm) {
             if (Storage::disk('public')->exists('files/documentUser/suratIzin/' . $umkm->encrypted_filesname) && Storage::disk('public')->exists('files/documentUser/profileUMKM/' . $umkm->encrypted_photoname)) {
                 Storage::disk('public')->delete('files/documentUser/suratIzin/' . $umkm->encrypted_filesname);
-                Storage::disk('public')->delete('files/documentUser/profileUMKM/' . $umkm->encrypted_filesname);                
+                Storage::disk('public')->delete('files/documentUser/profileUMKM/' . $umkm->encrypted_filesname);
                 echo 'File deleted successfully.';
             } else {
                 echo 'File not found.';

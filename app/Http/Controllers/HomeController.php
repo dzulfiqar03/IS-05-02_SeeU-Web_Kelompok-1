@@ -59,4 +59,16 @@ class HomeController extends Controller
     }
 }
 
+
+public function getUser(Request $request)
+{
+    $user = User::all();
+
+    if ($request->ajax()) {
+        return datatables()->of($user)
+            ->addIndexColumn()
+          
+            ->toJson();
+    }
+}
 }

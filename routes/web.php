@@ -3,11 +3,11 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\dataUmkmController;
+use App\Http\Controllers\dataUserController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogOutController;
 use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\Umkm_detailController;
 use App\Http\Controllers\UMKMController;
 use App\Http\Controllers\umkmDetailController;
 use Illuminate\Support\Facades\Route;
@@ -63,12 +63,16 @@ Route::resource('admin', AdminController::class);
 
 
 Route::get('/dataUmkm', [dataUmkmController::class, 'index'])->name('dataUmkm');
+Route::get('/dataUser', [dataUserController::class, 'index'])->name('dataUser');
 
 
 Route::get('getUmkm', [HomeController::class, 'getData'])->name('umkm.getData');
+Route::get('getUser', [HomeController::class, 'getUser'])->name('getUser');
+
 
 Route::get('exportExcel', [AdminController::class, 'exportExcel'])->name('admin.exportExcel');
 Route::get('exportPdf', [AdminController::class, 'exportPdf'])->name('admin.exportPdf');
 Route::get('download-file/{umkmId}', [AdminController::class, 'downloadFile'])->name('admin.downloadFile');
+
 
 Route::get('/umkmDetail/{id}', [umkmDetailController::class, 'index'])->name('detail');
