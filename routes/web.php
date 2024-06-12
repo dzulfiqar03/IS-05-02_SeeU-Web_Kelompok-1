@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\aboutUsController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\allUmkmController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
@@ -80,3 +81,8 @@ Route::get('download-file/{umkmId}', [AdminController::class, 'downloadFile'])->
 
 
 Route::get('/umkmDetail/{id}', [umkmDetailController::class, 'index'])->name('detail');
+
+
+// Route untuk menampilkan daftar UMKM pada halaman About Us
+Route::get('/aboutUs', [aboutUsController::class, 'index'])->name('about');
+
