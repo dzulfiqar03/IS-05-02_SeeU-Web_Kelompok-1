@@ -33,8 +33,8 @@
 
                 <div class="topContent h-100">
 
-                        <img class="mx-auto mb-5" src="{{ Vite::asset('resources/images/Logo/logo_verti.png') }}"
-                            width="200px" alt="image">
+                    <img class="mx-auto mb-5" src="{{ Vite::asset('resources/images/Logo/logo_verti.png') }}"
+                        width="200px" alt="image">
 
 
                     <div class="w-100 mt-5 h-100">
@@ -43,7 +43,8 @@
 
                             <a class="btn btn-dark mb-3" style="color:rgb(70, 70, 70)"
                                 href="{{ route('allUmkm') }}">UMKM</a>
-                            <a class="btn btn-dark  mb-3" style="color:rgb(70, 70, 70)">About Us</a>
+                            <a class="btn btn-dark mb-3" style="color:rgb(70, 70, 70)" href="{{ route('about') }}">About
+                                Us</a>
 
                         </div>
 
@@ -259,10 +260,9 @@
                                     owner page</a>
                             </div>
                             <div class="col-lg-6">
-                                <img class="img-fluid"
-                                src="{{ Vite::asset('//resources/images/adImage.jpg') }}"
-                                alt="image">
-                              </div>
+                                <img class="img-fluid" src="{{ Vite::asset('//resources/images/adImage.jpg') }}"
+                                    alt="image">
+                            </div>
                         </div>
                         <div class="row mt-5">
                             <div class="col-md-3 col-sm-6 mb-3 mb-md-0">

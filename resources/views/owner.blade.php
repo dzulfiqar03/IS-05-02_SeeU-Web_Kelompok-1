@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,76 +26,77 @@
 
 <body>
     @if (Auth::check())
-    <div class="text-center">
-        <div class="d-flex">
+        <div class="text-center">
+            <div class="d-flex">
 
-            <div class="leftContent p-2 gap-50 vh-100" id="leftContent">
+                <div class="leftContent p-2 gap-50 vh-100" id="leftContent">
 
-                <div class="topContent h-100">
+                    <div class="topContent h-100">
 
-                    @if (Auth::check())
-                        <img class="mx-auto mb-5" src="{{ Vite::asset('resources/images/Logo/logo_verti.png') }}"
-                            width="200px" alt="image">
-                    @else
-                        <img class="mx-auto mb-5" src="" width="200px" alt="image">
-                    @endif
-
-
-
-                    <div class="w-100 mt-5 h-100">
-                        <div class="d-grid">
-                            <a class="btn btn-warning fw-bold btnHome mb-3" href="{{ route('home') }}">Home</a>
-
-                            <a class="btn btn-dark mb-3" style="color:rgb(70, 70, 70)"
-                                href="{{ route('home') }}">UMKM</a>
-                            <a class="btn btn-dark  mb-3" style="color:rgb(70, 70, 70)">About Us</a>
-
-                        </div>
+                        @if (Auth::check())
+                            <img class="mx-auto mb-5" src="{{ Vite::asset('resources/images/Logo/logo_verti.png') }}"
+                                width="200px" alt="image">
+                        @else
+                            <img class="mx-auto mb-5" src="" width="200px" alt="image">
+                        @endif
 
 
-                    </div>
-                </div>
 
-                <div class="bottomContent">
-                    <form method="POST" action="{{ route('logout') }}">
-                        @csrf
-                        <button class="btn btn-danger w-100 fw-bold btnReg border-0" type="submit">Logout</button>
-                    </form>
-                </div>
+                        <div class="w-100 mt-5 h-100">
+                            <div class="d-grid">
+                                <a class="btn btn-warning fw-bold btnHome mb-3" href="{{ route('home') }}">Home</a>
 
-            </div>
+                                <a class="btn btn-dark mb-3" style="color:rgb(70, 70, 70)"
+                                    href="{{ route('home') }}">UMKM</a>
+                                <a class="btn btn-dark mb-3" style="color:rgb(70, 70, 70)"
+                                    href="{{ route('about') }}">About Us</a>
 
-            <div class="col rightContent bg-white vh-100 ">
-                @include('layouts.nav')
-
-                <div class="umkmList bg-white">
-                    <div class="container bg-white">
-                        <div class="row mb-0">
-                            <div class="topUmkmList mt-5">
-
-                                <h1 class="fw-bold">UMKM</h1>
-                                <div class="col-lg-3 col-xl-2">
-
-                                    <button type="button" class="btn mainColor text-light fw-bold" data-bs-toggle="modal"
-                                        data-bs-target="#createUMKM">
-                                        <i class="bi bi-plus-circle me-1"></i>Create UMKM
-                                    </button>
-                                    </ul>
-                                </div>
                             </div>
 
+
                         </div>
+                    </div>
+
+                    <div class="bottomContent">
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <button class="btn btn-danger w-100 fw-bold btnReg border-0" type="submit">Logout</button>
+                        </form>
+                    </div>
+
+                </div>
+
+                <div class="col rightContent bg-white vh-100 ">
+                    @include('layouts.nav')
+
+                    <div class="umkmList bg-white">
+                        <div class="container bg-white">
+                            <div class="row mb-0">
+                                <div class="topUmkmList mt-5">
+
+                                    <h1 class="fw-bold">UMKM</h1>
+                                    <div class="col-lg-3 col-xl-2">
+
+                                        <button type="button" class="btn mainColor text-light fw-bold"
+                                            data-bs-toggle="modal" data-bs-target="#createUMKM">
+                                            <i class="bi bi-plus-circle me-1"></i>Create UMKM
+                                        </button>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                            </div>
 
 
-                        <div class="item-body mt-5 pb-5 d-flex">
-                            <div class="sub-body1">
-                                <div class="text-center item2">
-                                    <div class="row product-list2 w-100">
+                            <div class="item-body mt-5 pb-5 d-flex">
+                                <div class="sub-body1">
+                                    <div class="text-center item2">
+                                        <div class="row product-list2 w-100">
 
-                                        @if ($umkm->isEmpty())
-                                            <p>Kosong</p>
-                                        @endif
-                                        @foreach ($umkm as $umkms)
+                                            @if ($umkm->isEmpty())
+                                                <p>Kosong</p>
+                                            @endif
+                                            @foreach ($umkm as $umkms)
                                                 <div class="col items mb-5">
                                                     <a class="text-decoration-none"
                                                         href="{{ route('detail', ['id' => $umkms->id]) }}">
@@ -121,145 +120,146 @@
                                                     </a>
 
                                                 </div>
-                                        @endforeach
+                                            @endforeach
+                                        </div>
                                     </div>
+
                                 </div>
 
                             </div>
 
+
+
                         </div>
+                    </div>
 
 
 
+                </div>
+
+            </div>
+        </div>
+
+
+
+        <div class="d-grid gap-2 text-start">
+            <div class="modal fade" id="createUMKM" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <form action="{{ route('umkm.store') }}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Tambah UMKM</h5>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <label for="umkm" class="form-label">UMKM</label>
+                                    <input class="form-control @error('umkm') is-invalid @enderror" type="text"
+                                        name="umkm" id="umkm" value="{{ old('umkm') }}"
+                                        placeholder="Enter UMKM">
+                                    @error('umkm')
+                                        <div class="text-danger">
+                                            <small>{{ $message }}</small>
+                                        </div>
+                                    @enderror
+                                </div>
+                                <div class="form-group">
+                                    <label for="description" class="form-label">Description</label>
+                                    <input class="form-control @error('description') is-invalid @enderror"
+                                        type="text" name="description" id="description"
+                                        value="{{ old('description') }}" placeholder="Enter Description">
+                                    @error('description')
+                                        <div class="text-danger">
+                                            <small>{{ $message }}</small>
+                                        </div>
+                                    @enderror
+                                </div>
+                                <div class="form-group">
+                                    <label for="email" class="form-label">Email</label>
+                                    <input class="form-control @error('email') is-invalid @enderror" type="text"
+                                        name="email" id="email" value="{{ old('email') }}"
+                                        placeholder="Enter Email">
+                                    @error('email')
+                                        <div class="text-danger">
+                                            <small>{{ $message }}</small>
+                                        </div>
+                                    @enderror
+                                </div>
+                                <div class="form-group">
+                                    <label for="address" class="form-label">Address</label>
+                                    <input class="form-control @error('address') is-invalid @enderror" type="text"
+                                        name="address" id="address" value="{{ old('address') }}"
+                                        placeholder="Enter Address">
+                                    @error('address')
+                                        <div class="text-danger">
+                                            <small>{{ $message }}</small>
+                                        </div>
+                                    @enderror
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="telNum" class="form-label">Telephone Number</label>
+                                    <input class="form-control @error('telNum') is-invalid @enderror" type="text"
+                                        name="telNum" id="telNum" value="{{ old('telNum') }}"
+                                        placeholder="Enter Telephone Number">
+                                    @error('telNum')
+                                        <div class="text-danger">
+                                            <small>{{ $message }}</small>
+                                        </div>
+                                    @enderror
+                                </div>
+                                <div class="col-md-12 mb-3">
+                                    <label for="category" class="form-label">Category</label>
+                                    <select name="category" id="category" class="form-select">
+                                        @foreach ($category as $category)
+                                            <option value="{{ $category->id }}"
+                                                {{ old('category') == $category->id ? 'selected' : '' }}>
+                                                {{ $category->name }}</option>
+                                        @endforeach
+                                    </select>
+                                    @error('category')
+                                        <div class="text-danger">
+                                            <small>{{ $message }}</small>
+                                        </div>
+                                    @enderror
+                                </div>
+                                <div class="col-md-12 mb-3">
+                                    <label for="cv" class="form-label">
+                                        Surat Izin Mendirikan Usaha
+                                    </label>
+                                    <input type="file" class="form-control" name="usahaDoc" id="usahaDoc">
+                                </div>
+
+                                <div class="col-md-6 mb-3 w-100">
+                                    <label for="cv" class="form-label">
+                                        Profil Usaha
+                                    </label>
+                                    <div class="input-group">
+                                        <div class="icon">
+                                            <img src="{{ Vite::asset('resources/images/Icon/imgIcon.png') }}"
+                                                alt="image" width="25">
+
+                                        </div>
+                                        <input type="file" class="form-control" name="imgPhoto" id="imgPhoto">
+                                    </div>
+                                    @error('imgPhoto')
+                                        <div class="text-danger"><small>{{ $message }}</small></div>
+                                    @enderror
+                                </div>
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary"
+                                    data-bs-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Save changes</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
-
-
-
             </div>
 
         </div>
-    </div>
-
-
-
-    <div class="d-grid gap-2 text-start">
-        <div class="modal fade" id="createUMKM" tabindex="-1" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <form action="{{ route('umkm.store') }}" method="POST" enctype="multipart/form-data">
-                        @csrf
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Tambah UMKM</h5>
-                        </div>
-                        <div class="modal-body">
-                            <div class="form-group">
-                                <label for="umkm" class="form-label">UMKM</label>
-                                <input class="form-control @error('umkm') is-invalid @enderror" type="text"
-                                    name="umkm" id="umkm" value="{{ old('umkm') }}"
-                                    placeholder="Enter UMKM">
-                                @error('umkm')
-                                    <div class="text-danger">
-                                        <small>{{ $message }}</small>
-                                    </div>
-                                @enderror
-                            </div>
-                            <div class="form-group">
-                                <label for="description" class="form-label">Description</label>
-                                <input class="form-control @error('description') is-invalid @enderror" type="text"
-                                    name="description" id="description" value="{{ old('description') }}"
-                                    placeholder="Enter Description">
-                                @error('description')
-                                    <div class="text-danger">
-                                        <small>{{ $message }}</small>
-                                    </div>
-                                @enderror
-                            </div>
-                            <div class="form-group">
-                                <label for="email" class="form-label">Email</label>
-                                <input class="form-control @error('email') is-invalid @enderror" type="text"
-                                    name="email" id="email" value="{{ old('email') }}"
-                                    placeholder="Enter Email">
-                                @error('email')
-                                    <div class="text-danger">
-                                        <small>{{ $message }}</small>
-                                    </div>
-                                @enderror
-                            </div>
-                            <div class="form-group">
-                                <label for="address" class="form-label">Address</label>
-                                <input class="form-control @error('address') is-invalid @enderror" type="text"
-                                    name="address" id="address" value="{{ old('address') }}"
-                                    placeholder="Enter Address">
-                                @error('address')
-                                    <div class="text-danger">
-                                        <small>{{ $message }}</small>
-                                    </div>
-                                @enderror
-                            </div>
-
-                            <div class="form-group">
-                                <label for="telNum" class="form-label">Telephone Number</label>
-                                <input class="form-control @error('telNum') is-invalid @enderror" type="text"
-                                    name="telNum" id="telNum" value="{{ old('telNum') }}"
-                                    placeholder="Enter Telephone Number">
-                                @error('telNum')
-                                    <div class="text-danger">
-                                        <small>{{ $message }}</small>
-                                    </div>
-                                @enderror
-                            </div>
-                            <div class="col-md-12 mb-3">
-                                <label for="category" class="form-label">Category</label>
-                                <select name="category" id="category" class="form-select">
-                                    @foreach ($category as $category)
-                                        <option value="{{ $category->id }}"
-                                            {{ old('category') == $category->id ? 'selected' : '' }}>
-                                            {{ $category->name }}</option>
-                                    @endforeach
-                                </select>
-                                @error('category')
-                                    <div class="text-danger">
-                                        <small>{{ $message }}</small>
-                                    </div>
-                                @enderror
-                            </div>
-                            <div class="col-md-12 mb-3">
-                                <label for="cv" class="form-label">
-                                    Surat Izin Mendirikan Usaha
-                                </label>
-                                <input type="file" class="form-control" name="usahaDoc" id="usahaDoc">
-                            </div>
-
-                            <div class="col-md-6 mb-3 w-100">
-                                <label for="cv" class="form-label">
-                                   Profil Usaha
-                                </label>
-                                <div class="input-group">
-                                    <div class="icon">
-                                        <img src="{{ Vite::asset('resources/images/Icon/imgIcon.png') }}"
-                                            alt="image" width="25">
-
-                                    </div>
-                                    <input type="file" class="form-control" name="imgPhoto" id="imgPhoto">
-                                </div>
-                                @error('imgPhoto')
-                                    <div class="text-danger"><small>{{ $message }}</small></div>
-                                @enderror
-                            </div>
-
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">Save changes</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-
-    </div>
     @endif
 
 

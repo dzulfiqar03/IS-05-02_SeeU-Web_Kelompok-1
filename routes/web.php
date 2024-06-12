@@ -46,8 +46,16 @@ Route::middleware('isLogin')->group(function () {
 
 
     Route::get('/admin', [AdminController::class, 'index'])->name('admins');
+    Route::get('/home', [HomeController::class, 'index'])->name('home');
+    Route::get('/dataUmkm', [dataUmkmController::class, 'index'])->name('dataUmkm');
+    Route::get('/dataUser', [dataUserController::class, 'index'])->name('dataUser');
+    Route::get('/owner', [ownerController::class, 'index'])->name('owner');
+    Route::get('/allUmkm', [allUmkmController::class, 'index'])->name('allUmkm');
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+    Route::get('/umkmDetail/{id}', [umkmDetailController::class, 'index'])->name('detail');
+
+    Route::get('/aboutUs', [aboutUsController::class, 'index'])->name('about');
 });
 
 
@@ -64,13 +72,6 @@ Route::resource('umkm', UMKMController::class);
 Route::resource('admin', AdminController::class);
 
 
-
-Route::get('/dataUmkm', [dataUmkmController::class, 'index'])->name('dataUmkm');
-Route::get('/dataUser', [dataUserController::class, 'index'])->name('dataUser');
-Route::get('/owner', [ownerController::class, 'index'])->name('owner');
-Route::get('/allUmkm', [allUmkmController::class, 'index'])->name('allUmkm');
-
-
 Route::get('getUmkm', [HomeController::class, 'getData'])->name('umkm.getData');
 Route::get('getUser', [HomeController::class, 'getUser'])->name('getUser');
 
@@ -79,10 +80,4 @@ Route::get('exportExcel', [AdminController::class, 'exportExcel'])->name('admin.
 Route::get('exportPdf', [AdminController::class, 'exportPdf'])->name('admin.exportPdf');
 Route::get('download-file/{umkmId}', [AdminController::class, 'downloadFile'])->name('admin.downloadFile');
 
-
-Route::get('/umkmDetail/{id}', [umkmDetailController::class, 'index'])->name('detail');
-
-
-// Route untuk menampilkan daftar UMKM pada halaman About Us
-Route::get('/aboutUs', [aboutUsController::class, 'index'])->name('about');
 

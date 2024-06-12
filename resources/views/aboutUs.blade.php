@@ -44,14 +44,14 @@
 
                     <div class="w-100 mt-5 h-100">
                         <div class="d-grid">
-                            <a class="btn btn-warning fw-bold btnHome mb-3" href="{{ route('home') }}">Home</a>
+                            <a class="btn btn-dark mb-3" style="color:rgb(70, 70, 70)" href="{{ route('home') }}">Home</a>
 
                             <a class="btn btn-dark mb-3" style="color:rgb(70, 70, 70)"
-                                href="{{ route('home') }}">UMKM</a>
-                            <a class="btn btn-dark mb-3" style="color:rgb(70, 70, 70)"
-                            href="{{ route('about') }}">About Us</a>
+                                href="{{ route('allUmkm') }}">UMKM</a>
+                            <a class="btn  btn-warning fw-bold btnHome  mb-3" href="{{ route('about') }}">About
+                                Us</a>
 
- 
+
                         </div>
 
 
@@ -67,27 +67,33 @@
 
             </div>
 
-            <div class="col rightContent bg-white vh-100 ">
+            <div class="col rightContent bg-white h-100 ">
                 @include('layouts.nav')
 
-                <div class="row justify-content-center">
+                <div class="row justify-content-center mt-5">
                     <div class="col-md-8">
                         <div class="card shadow-lg p-3 mb-5 bg-body rounded">
                             <div class="card-body">
-                               <img src="{{ Vite::asset('resources/images/jawa_timur.png') }}"
-                               alt="image" width="500">
-                               <h1 class="fas fa-h1    "></i>About Us</h1>
+                                <img src="{{ Vite::asset('resources/images/jawa_timur.png') }}" alt="image"
+                                    width="500">
+                                <h1 class="fas fa-h1    "></i>About Us</h1>
                                 <p class="card-text">
-                                    SeeU - Sistem Informasi UMKM adalah platform yang didedikasikan untuk mendukung dan mempromosikan Usaha Mikro, Kecil, dan Menengah (UMKM) di Jawa Timur. Kami berkomitmen untuk memberikan solusi teknologi yang memudahkan UMKM dalam mengelola operasional sehari-hari, meningkatkan visibilitas pasar, dan mengakses sumber daya yang lebih luas.
+                                    SeeU - Sistem Informasi UMKM adalah platform yang didedikasikan untuk mendukung dan
+                                    mempromosikan Usaha Mikro, Kecil, dan Menengah (UMKM) di Jawa Timur. Kami
+                                    berkomitmen untuk memberikan solusi teknologi yang memudahkan UMKM dalam mengelola
+                                    operasional sehari-hari, meningkatkan visibilitas pasar, dan mengakses sumber daya
+                                    yang lebih luas.
                                 </p>
                                 <h1 class="card-title"> Visi dan Misi</h1>
                                 <p class="card-text">
-                                    Misi kami adalah mengempower UMKM untuk tumbuh dan bersaing di era digital dengan menyediakan alat yang efektif dan efisien
+                                    Misi kami adalah mengempower UMKM untuk tumbuh dan bersaing di era digital dengan
+                                    menyediakan alat yang efektif dan efisien
                                 </p>
                                 <p class="card-text">
-                                    Visi kami adalah menjadi penyedia layanan UMKM terdepan bagi UMKM yang ada di seluruh jawa timur agar saling terintegrasi
+                                    Visi kami adalah menjadi penyedia layanan UMKM terdepan bagi UMKM yang ada di
+                                    seluruh jawa timur agar saling terintegrasi
                                 </p>
-    
+
                             </div>
                         </div>
                     </div>
@@ -176,9 +182,3 @@
 </body>
 
 </html>
-
-
-
-
-
-

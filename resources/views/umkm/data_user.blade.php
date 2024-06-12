@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Main Menu</title>
+    <title>SeeU - Sistem Informasi UMKM</title>
     @vite('resources/sass/app.scss')
 
     <style>
@@ -26,17 +26,19 @@
                 <div class="topContent h-100">
 
                     <img class="mx-auto mb-5" src="{{ Vite::asset('resources/images/Logo/logo_verti.png') }}"
-                    width="200px" alt="image">
+                        width="200px" alt="image">
 
 
                     <div class="w-100 mt-5 h-100">
                         <div class="d-grid">
-                            <a class="btn btn-dark fw-bold mb-3" href="{{ route('admin.index') }}"
+                            <a class="btn btn-dark mb-3" href="{{ route('admin.index') }}"
                                 style="color:rgb(70, 70, 70)">Home</a>
 
-                            <a class="btn btn-dark fw-bold mb-3" href="{{ route('dataUmkm') }}" style="color:rgb(70, 70, 70)">UMKM</a>
+                            <a class="btn btn-dark mb-3" href="{{ route('dataUmkm') }}"
+                                style="color:rgb(70, 70, 70)">UMKM</a>
                             <a class="btn btn-warning fw-bold  mb-3" href="{{ route('dataUser') }}">Users</a>
-                            <a class="btn btn-dark  mb-3" style="color:rgb(70, 70, 70)">About Us</a>
+                            <a class="btn btn-dark mb-3" style="color:rgb(70, 70, 70)" href="{{ route('about') }}">About
+                                Us</a>
                         </div>
 
 
@@ -181,11 +183,11 @@
                                 <div class="w-100 justify-content-center">
                                     <div class="bg-light rounded-3">
                                         <div class="p-3">
-                                        <div class="mb-3 text-center">
-                                            <i class="bi-person-circle fs-1"></i>
-                                            <h4>Edit admin</h4>
-                                        </div>
-                                        <hr>
+                                            <div class="mb-3 text-center">
+                                                <i class="bi-person-circle fs-1"></i>
+                                                <h4>Edit admin</h4>
+                                            </div>
+                                            <hr>
                                             <div class="col-md-6 mb-3 w-100">
                                                 <label for="umkm" class="form-label">First Name</label>
                                                 <input
@@ -257,7 +259,7 @@
                                                         {{ $selected == $dataUmkm->category->id ? 'selected' : '' }}>
                                                         {{ $dataUmkm->category->id .
                                                             ' -
-                                                                                                                                                                                                                                                                ' .
+                                                                                                                                                                                                                                                                                                                                                                                                                                        ' .
                                                             $dataUmkm->category->name }}
                                                     </option>
                                                 </select>
@@ -321,8 +323,8 @@
                                             </div>
 
                                         </div>
-                                        </div>
                                     </div>
+                                </div>
                             </form>
                         </div>
 
