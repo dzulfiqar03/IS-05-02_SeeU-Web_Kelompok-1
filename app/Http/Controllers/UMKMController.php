@@ -17,7 +17,7 @@ class UMKMController extends Controller
      */
     public function index()
     {
-        Alert::success('Added Successfully', 'umkm Data Added Successfully.');
+        Alert::success('Added Successfully', 'UMKM Data Added Successfully.');
         $category = Category::all();
         $user = User::all();
         $umkm = Umkm::all();
@@ -25,6 +25,7 @@ class UMKMController extends Controller
         $culinary = UMKM::where('category_id', 1)->get();
         $fashion = UMKM::where('category_id', 2)->get();
         $service = UMKM::where('category_id', 3)->get();
+        $pageTitle = "UMKM";
 
         return redirect()->route('home')->with([
             'user' => $user,
@@ -34,6 +35,7 @@ class UMKMController extends Controller
             'culinary' => $culinary,
             'fashion' => $fashion,
             'service' => $service,
+            'pageTitle' => $pageTitle,
 
         ]);
     }
@@ -148,7 +150,7 @@ class UMKMController extends Controller
         if ($umkm) {
             if (Storage::disk('public')->exists('files/documentUser/suratIzin/' . $umkm->encrypted_filesname) && Storage::disk('public')->exists('files/documentUser/profileUMKM/' . $umkm->encrypted_photoname)) {
                 Storage::disk('public')->delete('files/documentUser/suratIzin/' . $umkm->encrypted_filesname);
-                Storage::disk('public')->delete('files/documentUser/profileUMKM/' . $umkm->encrypted_filesname);                
+                Storage::disk('public')->delete('files/documentUser/profileUMKM/' . $umkm->encrypted_filesname);
                 echo 'File deleted successfully.';
             } else {
                 echo 'File not found.';
@@ -157,5 +159,23 @@ class UMKMController extends Controller
         $umkm->delete();
 
         return redirect()->route('dataUmkm');
+    }
+
+    public function getAllUmkm()
+    {
+        $category = Category::all();
+        $user = User::all();
+        $umkm = Umkm::all();
+        $umkmCount = Umkm::all()->count();
+        $pageTitle = "UMKM";
+
+        return view('owner', [
+            'user' => $user,
+            'category' => $category,
+            'umkm' => $umkm,
+            'umkmCount' => $umkmCount,
+            'pageTitle' => $pageTitle,
+
+        ]);
     }
 }

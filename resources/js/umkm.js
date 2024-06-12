@@ -8,6 +8,7 @@ $(document).ready(function() {
             { data: "DT_RowIndex", name: "DT_RowIndex", orderable: false, searchable: false },
             { data: "umkm", name: "umkm" },
             { data: "description", name: "description" },
+            { data: "address", name: "address" },
             { data: "email", name: "email" },
             { data: "telephone_number", name: "telephone_number" },
             { data: "category.name", name: "category.name" },
