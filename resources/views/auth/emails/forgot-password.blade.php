@@ -15,7 +15,7 @@
     alt="image" width="70px" class="d-block w-10 m-auto">
 
     <h1>Welcome</h1>
-    <button class="bg-warning" onclick='route("reset.password", $token)'>Reset Password</button>
+    <a href="{{route("reset.password", $token)}}">Reset passsword</a>
 
     </div>
 
