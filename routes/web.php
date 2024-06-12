@@ -1,12 +1,14 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\allUmkmController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\dataUmkmController;
 use App\Http\Controllers\dataUserController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogOutController;
+use App\Http\Controllers\ownerController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\UMKMController;
 use App\Http\Controllers\umkmDetailController;
@@ -64,6 +66,8 @@ Route::resource('admin', AdminController::class);
 
 Route::get('/dataUmkm', [dataUmkmController::class, 'index'])->name('dataUmkm');
 Route::get('/dataUser', [dataUserController::class, 'index'])->name('dataUser');
+Route::get('/owner', [ownerController::class, 'index'])->name('owner');
+Route::get('/allUmkm', [allUmkmController::class, 'index'])->name('allUmkm');
 
 
 Route::get('getUmkm', [HomeController::class, 'getData'])->name('umkm.getData');

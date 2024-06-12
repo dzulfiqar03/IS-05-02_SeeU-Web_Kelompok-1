@@ -17,17 +17,25 @@
 
 
 .item-body {
-    gap: 20px;
+    gap: 40px;
     overflow: hidden;
-  }
+}
 
-  .bottomContent{
+.bottomContent {
     height: max-content;
-  }
-  .item2, .item3, .item4{
-    width: 1140px;
-  }
+}
 
-  .itemBtn{
+.item2,
+.item3,
+.item4 {
+    width: 1140px;
+}
+
+.itemBtn {
     width: max-content;
-  }
+}
+
+.items {
+    width: max-content;
+    margin-left: 40px;
+}

@@ -33,6 +33,7 @@ class HomeController extends Controller
         $culinary = UMKM::where('category_id', 1)->get();
         $fashion = UMKM::where('category_id', 2)->get();
         $service = UMKM::where('category_id', 3)->get();
+        $pageTitle = "Home";
 
         return view('home', [
             'user' => $user,
@@ -42,6 +43,7 @@ class HomeController extends Controller
             'culinary' => $culinary,
             'fashion' => $fashion,
             'service' => $service,
+            'pageTitle' => $pageTitle,
         ]);
     }
 
@@ -67,7 +69,7 @@ public function getUser(Request $request)
     if ($request->ajax()) {
         return datatables()->of($user)
             ->addIndexColumn()
-          
+
             ->toJson();
     }
 }

@@ -16,7 +16,7 @@
                 <button class="navbar-toggler backToogle" type="button" id="backToogle" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <a class="navbar-brand px-3 text-white fw-bold" href="#">Home</a>
+                <a class="navbar-brand px-3 text-white fw-bold" href="#">{{$pageTitle}}</a>
             </div>
         </div>
 

@@ -25,15 +25,8 @@
 
                 <div class="topContent h-100">
 
-                    @if (Auth::check())
-                        <img class="mx-auto mb-5"
-                            src="{{ Vite::asset('/public/resources/images/members/' . Auth::user()->original_filename) }}"
-                            width="200px" alt="image">
-                    @else
-                        <img class="mx-auto mb-5" src="{{ Vite::asset('resources/images/profile.png') }}" width="200px"
-                            height="200px" alt="image">
-                    @endif
-
+                    <img class="mx-auto mb-5" src="{{ Vite::asset('resources/images/Logo/logo_verti.png') }}"
+                    width="200px" alt="image">
 
 
                     <div class="w-100 mt-5 h-100">
@@ -41,8 +34,8 @@
                             <a class="btn btn-dark fw-bold mb-3" href="{{ route('admin.index') }}"
                                 style="color:rgb(70, 70, 70)">Home</a>
 
-                            <a class="btn btn-warning  mb-3" href="{{ route('dataUmkm') }}">UMKM</a>
-                            <a class="btn btn-dark  mb-3" href="{{ route('dataUser') }}" style="color:rgb(70, 70, 70)">Users</a>
+                            <a class="btn btn-dark fw-bold mb-3" href="{{ route('dataUmkm') }}" style="color:rgb(70, 70, 70)">UMKM</a>
+                            <a class="btn btn-warning fw-bold  mb-3" href="{{ route('dataUser') }}">Users</a>
                             <a class="btn btn-dark  mb-3" style="color:rgb(70, 70, 70)">About Us</a>
                         </div>
 

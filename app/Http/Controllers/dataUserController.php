@@ -11,8 +11,9 @@ class dataUserController extends Controller
         $umkm = Umkm::all();
 
         $user = User::all();
+        $pageTitle = "Data User";
 
-        return view('umkm.data_user', compact('umkm', 'user'));
+        return view('umkm.data_user', compact('umkm', 'user', 'pageTitle'));
 
     }
 }

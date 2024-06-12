@@ -17,6 +17,7 @@ class umkmDetailController extends Controller
             return abort(404);
         }
 
+
         return view('umkm.umkm_detail', compact('umkm' , 'idUmkm'));
     }
 
