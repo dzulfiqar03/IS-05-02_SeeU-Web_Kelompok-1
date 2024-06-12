@@ -37,8 +37,7 @@
                             <a class="btn btn-dark mb-3" href="{{ route('dataUmkm') }}"
                                 style="color:rgb(70, 70, 70)">UMKM</a>
                             <a class="btn btn-warning fw-bold  mb-3" href="{{ route('dataUser') }}">Users</a>
-                            <a class="btn btn-dark mb-3" style="color:rgb(70, 70, 70)" href="{{ route('about') }}">About
-                                Us</a>
+                          
                         </div>
 
 
