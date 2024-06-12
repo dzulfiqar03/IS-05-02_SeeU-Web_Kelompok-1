@@ -48,8 +48,10 @@
 
                             <a class="btn btn-dark mb-3" style="color:rgb(70, 70, 70)"
                                 href="{{ route('home') }}">UMKM</a>
-                            <a class="btn btn-dark  mb-3" style="color:rgb(70, 70, 70)">About Us</a>
+                            <a class="btn btn-dark mb-3" style="color:rgb(70, 70, 70)"
+                            href="{{ route('about') }}">About Us</a>
 
+ 
                         </div>
 
 
