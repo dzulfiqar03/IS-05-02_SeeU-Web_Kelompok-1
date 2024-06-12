@@ -19,6 +19,8 @@
     @include('sweetalert::alert')
     @vite('resources/js/app.js')
     @stack('scripts')
+    @stack('scripts2')
+
 </body>
 
 </html>

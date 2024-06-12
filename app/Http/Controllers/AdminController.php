@@ -27,6 +27,7 @@ class AdminController extends Controller
         $culinary = Umkm::where('category_id', 1)->get();
         $fashion = Umkm::where('category_id', 2)->get();
         $service = Umkm::where('category_id', 3)->get();
+        $pageTitle = "Home";
 
         return view('Menu.admin', [
             'user' => $user,
@@ -36,7 +37,9 @@ class AdminController extends Controller
             'culinary' => $culinary,
             'fashion' => $fashion,
             'service' => $service,
-            'chart' => $chart->build()
+            'chart' => $chart->build(),
+            'pageTitle' => $pageTitle,
+
         ]);
     }
 
@@ -83,24 +86,24 @@ class AdminController extends Controller
          // Get File
          $file = $request->file('usahaDoc');
          $photo = $request->file('imgPhoto');
- 
+
          if ($file != null && $photo != null) {
              $original_filesname = $file->getClientOriginalName();
              $encrypted_filesname = $file->hashName();
- 
+
              // Store File
              $file->store('public/files/documentUser/suratIzin');
              $file->move('resources/images/umkm/documentUMKM', $original_filesname);
- 
+
              $original_photoname = $photo->getClientOriginalName();
              $encrypted_photoname = $photo->hashName();
- 
+
              // Store File
              $photo->store('public/files/documentUser/profileUMKM');
              $photo->move('resources/images/umkm/profileUMKM', $original_photoname);
- 
+
          }
- 
+
          // ELOQUENT
          $umkm = new Umkm;
          $umkm->umkm = $request->umkm;
@@ -109,19 +112,19 @@ class AdminController extends Controller
          $umkm->address = $request->address;
          $umkm->telephone_number = $request->telNum;
          $umkm->category_id = $request->category;
- 
+
          if ($file != null && $photo != null) {
              $umkm->original_photoname = $original_photoname;
              $umkm->encrypted_photoname = $encrypted_photoname;
- 
+
              $umkm->original_filesname = $original_filesname;
              $umkm->encrypted_filesname = $encrypted_filesname;
          }
- 
+
          $umkm->save();
- 
- 
- 
+
+
+
          return redirect()->route('dataUmkm');
     }
 

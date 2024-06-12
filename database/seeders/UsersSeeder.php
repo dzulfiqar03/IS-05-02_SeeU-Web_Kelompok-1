@@ -23,5 +23,6 @@ class UsersSeeder extends Seeder
             'original_filename' => null,
             'encrypted_filename' => null,
         ]);
+
     }
 }

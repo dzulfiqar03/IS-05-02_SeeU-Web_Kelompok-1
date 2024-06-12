@@ -90,8 +90,6 @@ class RegisterController extends Controller
     public function apiReg(Request $request)
     {
 
-        $user = $this->$request->email;
-
         return response()->json([
             'success' => true,
             'message' => 'Sukses register',
