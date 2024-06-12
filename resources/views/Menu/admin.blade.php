@@ -37,7 +37,6 @@
                                 style="color:rgb(70, 70, 70)">UMKM</a>
                             <a class="btn btn-dark  mb-3" href="{{ route('dataUser') }}"
                                 style="color:rgb(70, 70, 70)">User</a>
-                            <a class="btn btn-dark  mb-3" style="color:rgb(70, 70, 70)">About Us</a>
 
                         </div>
 
