@@ -68,10 +68,10 @@
 
             </div>
 
-            <div class="col rightContent bg-white  ">
+            <div class="col rightContent bg-white vh-100">
                 @include('layouts.nav')
 
-                <div class="allBody">
+                <div class="allBody h-100 bg-white">
                     <h1 class="fw-bold my-5">All UMKM</h1>
                     <div class="row row-cols-1 row-cols-md-3 g-4">
                         @foreach ($umkm as $umkms)

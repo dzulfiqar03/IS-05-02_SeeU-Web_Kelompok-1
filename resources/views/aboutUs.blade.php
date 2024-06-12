@@ -67,7 +67,7 @@
 
             </div>
 
-            <div class="col rightContent bg-white h-100 ">
+            <div class="col rightContent bg-white   vh-100">
                 @include('layouts.nav')
 
                 <div class="row justify-content-center mt-5">
