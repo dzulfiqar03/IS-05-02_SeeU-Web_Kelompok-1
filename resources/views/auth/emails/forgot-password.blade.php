@@ -7,20 +7,29 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Email</title>
     @vite('resources/sass/app.scss')
-
+    <style>
+        .reset-link {
+            color: #007BFF; /* Warna biru */
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            background-color: #f8f9fa; /* Warna latar belakang */
+            padding: 10px 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .reset-link:hover {
+            color: #0056b3; /* Warna saat hover */
+            background-color: #e2e6ea; /* Warna latar saat hover */
+        }
+        .reset-link img {
+            margin-right: 8px; /* Jarak antara logo dan teks */
+        }
+    </style>
 </head>
 
 <body>
-
-    <div class="sectin">
-        <a href="https://ibb.co.com/QXg3hXT"><img src="https://i.ibb.co.com/rvjRqvz/logo-seeu.png" alt="logo-seeu"
-                border="0" width="70px" class="d-block w-10 m-auto"></a>
-        <h1>Lupa Password?</h1>
-        <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 100%; background-color: #242542; height: 5px" />
-        <p>Silahkan ganti password anda dengan klik "Reset Password" di bawah ini.</p>
-        <a href="{{ route('reset.password', $token) }}">Reset Password</a>
-        <p style="color: red;">Catat Password Anda</p>
-    </div>
 
 </body>
 
