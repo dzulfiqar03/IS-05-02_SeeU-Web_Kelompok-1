@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Email</title>
     @vite('resources/sass/app.scss')
     <style>
         .reset-link {
@@ -27,10 +28,9 @@
         }
     </style>
 </head>
+
 <body>
-    <a href="{{route('reset.password', $token)}}" class="reset-link">
-        <img src="{{ Vite::asset('resources/images/reset_icon.png') }}" alt="Reset Icon" width="20">
-        Reset Password
-    </a>
+
 </body>
+
 </html>
