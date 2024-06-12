@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Detail UMKM</title>
+    <title>SeeU - Sistem Informasi UMKM</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
@@ -83,6 +83,7 @@
             display: flex;
             justify-content: center;
         }
+
         .fixed-image {
             width: 880px;
             height: 500px;
@@ -133,7 +134,7 @@
                                 </div>
                                 <div class="d-grid btn-center mt-5">
                                     <a href="{{ route('home') }}"
-                                        class="btn btn-outline-dark btn-lg mt-3 fw-bold w-100"> Back</a>
+                                        class="btn btn-outline-dark btn-lg mt-3 fw-bold w-100">Back</a>
                                 </div>
                             </div>
                         </div>

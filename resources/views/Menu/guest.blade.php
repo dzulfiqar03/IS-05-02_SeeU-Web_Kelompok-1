@@ -48,9 +48,7 @@
                     <div class="collapse navbar-collapse  justify-content-between" id="navbarSupportedContent">
                         <hr class="d-md-none text-white-50">
                         <ul class="navbar-nav flex-row flex-wrap">
-                            <li class="nav-item col-2 col-md-auto"><a href="#aboutus" class="nav-link">ABOUT</a></li>
-                            <li class="nav-item col-2 col-md-auto"><a href="#footer" class="nav-link">CONTACT</a></li>
-                        </ul>
+                           </ul>
                         <hr class="d-md-none text-white-50">
 
                         @if ($currentRouteName == 'guest')
@@ -108,7 +106,7 @@ my-2 ms-md-auto"><i
 
             {{-- hero --}}
             <div class="p-4">
-                <h3 class="section-heading text-uppercase">kategori</h3>
+                <h3 class="section-heading text-uppercase">Kategori</h3>
                 <hr class="mb-4 mt-0 d-inline-block mx-auto"
                     style="width: 80px; background-color: #000000; height: 5px" />
                 <div class="card-group">

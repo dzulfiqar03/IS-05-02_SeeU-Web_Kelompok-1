@@ -9,11 +9,11 @@
     @vite('resources/sass/app.scss')
 
     <style>
-
-body {
+        body {
             background-color: rgb(22, 22, 22);
 
         }
+
         .item {
             width: 400px;
             padding: 0px;
@@ -46,11 +46,12 @@ body {
 
                     <div class="w-100 mt-5">
                         <div class="d-grid">
-                            <a class="btn btn-dark mb-3" href="{{ route('home') }}">Home</a>
+                            <a class="btn btn-dark mb-3" style="color:rgb(70, 70, 70)" href="{{ route('home') }}">Home</a>
 
-                            <a class="btn btn-warning fw-bold btnHome mb-3" style="color:rgb(70, 70, 70)"
+                            <a class="btn btn-warning fw-bold btnHome mb-3"
                                 href="{{ route('allUmkm') }}">UMKM</a>
-                            <a class="btn btn-dark  mb-3" style="color:rgb(70, 70, 70)">About Us</a>
+                            <a class="btn btn-dark mb-3" style="color:rgb(70, 70, 70)" href="{{ route('about') }}">About
+                                Us</a>
 
                         </div>
 
@@ -70,40 +71,40 @@ body {
             <div class="col rightContent bg-white  ">
                 @include('layouts.nav')
 
-  <div class="allBody">
-        <h1 class="fw-bold my-5">All UMKM</h1>
-        <div class="row row-cols-1 row-cols-md-3 g-4">
-            @foreach ($umkm as $umkms)
-                <div class="col">
-                    <div class="m-auto align-items-center cards">
-                        <a class="text-decoration-none" href="{{ route('detail', ['id' => $umkms->id]) }}">
+                <div class="allBody">
+                    <h1 class="fw-bold my-5">All UMKM</h1>
+                    <div class="row row-cols-1 row-cols-md-3 g-4">
+                        @foreach ($umkm as $umkms)
+                            <div class="col">
+                                <div class="m-auto align-items-center cards">
+                                    <a class="text-decoration-none" href="{{ route('detail', ['id' => $umkms->id]) }}">
 
-                            <div class="card" style="width: 18rem; height:344px">
-                                <img class="card-img-top"
-                                    src="{{ Vite::asset('/public/resources/images/umkm/profileUMKM/' . $umkms->original_photoname) }}"
-                                    width="1366px" height="200px" alt="image">
-                                <div class="card-body text-center">
-                                    <h5 class="card-title text-decoration-none txtMain">
-                                        {{ $umkms->umkm }}</h5>
-                                    <p class="card-text mb-2 txtMain" style="height:48px">
-                                        {{ $umkms->description }}
-                                    </p>
-                                    <a href="{{ route('detail', ['id' => $umkms->id]) }}"
-                                        class="btn mainColor text-light fw-bold">Go
-                                        somewhere</a>
+                                        <div class="card" style="width: 18rem; height:344px">
+                                            <img class="card-img-top"
+                                                src="{{ Vite::asset('/public/resources/images/umkm/profileUMKM/' . $umkms->original_photoname) }}"
+                                                width="1366px" height="200px" alt="image">
+                                            <div class="card-body text-center">
+                                                <h5 class="card-title text-decoration-none txtMain">
+                                                    {{ $umkms->umkm }}</h5>
+                                                <p class="card-text mb-2 txtMain" style="height:48px">
+                                                    {{ $umkms->description }}
+                                                </p>
+                                                <a href="{{ route('detail', ['id' => $umkms->id]) }}"
+                                                    class="btn mainColor text-light fw-bold">Go
+                                                    somewhere</a>
 
+                                            </div>
+                                        </div>
+                                    </a>
                                 </div>
+
                             </div>
-                        </a>
+                        @endforeach
+
+
+
                     </div>
-
                 </div>
-            @endforeach
-
-
-
-        </div>
-    </div>
             </div>
 
         </div>

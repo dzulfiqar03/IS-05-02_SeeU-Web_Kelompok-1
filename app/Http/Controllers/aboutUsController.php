@@ -10,10 +10,10 @@ class AboutUsController extends Controller
     public function index()
     {
 
-  
+        $pageTitle = "About Us";
 
-        return view('aboutUs'); // Pastikan view 'umkm.aboutUs' ada
+        return view('aboutUs', compact('pageTitle'));
     }
 
-   
+
 }
